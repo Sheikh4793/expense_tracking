@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 24px 16px;
+  position: fixed;
+  inset: 0 auto 0 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 35px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar a {
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.main-content {
+  margin-left: 240px;
+  padding: 35px;
+  width: calc(100% - 240px);
+  max-width: 1400px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.page-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.total-card,
+.stat-card,
+.form-card,
+.list-card,
+.chart-card,
+.category-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.total-card span,
+.stat-card span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.total-card strong,
+.stat-card strong {
+  font-size: 22px;
+}
+
+.form-card,
+.list-card,
+.chart-card,
+.category-card {
+  margin-bottom: 20px;
+}
+
+.expense-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+}
+
+input,
+select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 11px 12px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #6366f1;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  background: #4f46e5;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-row,
+.log-row,
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.expense-row:last-child,
+.log-row:last-child,
+.category-row:last-child {
+  border-bottom: 0;
+}
+
+.expense-row span,
+.log-row span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actions button {
+  border: 1px solid #e5e7eb;
+  background: white;
+  padding: 8px;
+  border-radius: 7px;
+}
+
+.actions button:hover {
+  background: #f3f4f6;
+}
+
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.period-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.period-buttons button {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 7px;
+  text-transform: capitalize;
+}
+
+.period-buttons button.active {
+  background: #111827;
+  color: white;
+}
+
+.log-row time {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  .main-content {
+    margin-left: 190px;
+    width: calc(100% - 190px);
+    padding: 20px;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .main-content {
+    margin: 0;
+    width: 100%;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+  }
+}
+
+@media print {
+
+  .sidebar,
+  .primary-btn {
+    display: none;
+  }
+
+  .main-content {
+    margin: 0;
+    width: 100%;
+  }
+}
